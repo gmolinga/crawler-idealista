@@ -1,0 +1,7 @@
+name: crawler-idealista
+dependencies:
+  - python=3.11.5
+  - pip
+  - pip:
+    - requests==2.31.0
+    - beautifulsoup4==4.12.2
