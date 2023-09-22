@@ -2,14 +2,30 @@
 
 ## About
 
+Repository containg a simple prototype of a web crawler of idealista.
+
 ## Prerequisites
+
+Recommended:
 
 - conda
 
 ## Installation
 
-- conda env create -f environment.yml
+Run: 
+
+```
+conda env create -f environment.yml
+```
 
 ## Uninstall
 
-- conda env remove -n crawler-idealista
+Run:
+
+```
+conda env remove -n crawler-idealista
+```
+
+## License
+
+[GPL-3.0](LICENSE)
