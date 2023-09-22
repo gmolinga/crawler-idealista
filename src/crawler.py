@@ -1,7 +1,7 @@
 import requests
 
-class Crawler:
 
+class Crawler:
     def __init__(self):
         self.headers = {
             # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
@@ -17,9 +17,10 @@ class Crawler:
             # "Upgrade-Insecure-Requests":"1",
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
         }
-    
-    def get(self, url:str):
+
+    def get(self, url: str):
         return requests.get(url, headers=self.headers)
+
 
 if __name__ == "__main__":
     test_url = ""

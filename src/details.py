@@ -8,37 +8,35 @@ from crawler import Crawler
 DETAILS_ENDPOINT = "https://www.idealista.com/inmueble/"
 REGEX_UTAG_DATA = re.compile("var utag_data = (.*?);")
 
+
 class Details:
     def __init__(self):
         self.crawler = Crawler()
 
-    def _build_url_from_id(self, id:int):
+    def _build_url_from_id(self, id: int):
         return DETAILS_ENDPOINT + str(id)
 
-    def get_details(self, id:int):
+    def get_details(self, id: int):
         url = self._build_url_from_id(id)
         page = self.crawler.get(url)
         soup = BeautifulSoup(page.content.decode())
         utag_data = json.loads(
             [
                 catch
-                for catch in 
-                [
+                for catch in [
                     REGEX_UTAG_DATA.search(script.string)
                     for script in soup.find_all("script")
-                    if isinstance(script.string,str)
+                    if isinstance(script.string, str)
                 ]
                 if catch
             ][0][1]
         )
-        details = {
-            **utag_data["ad"]
-        }
+        details = {**utag_data["ad"]}
         return details
-    
+
 
 if __name__ == "__main__":
-    id = ""
+    id = "100628198"
     details = Details()
     response = details.get_details(id)
     print(response)
